@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кондитерские изделия ручной работы | Торты и зефир</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fff5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .banner {
+            background: linear-gradient(to right, #ffd1dc, #ffecf0);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ff85a2' opacity='0.3'/%3E%3Ccircle cx='30' cy='30' r='10' fill='%23ff85a2' opacity='0.2'/%3E%3Ccircle cx='70' cy='30' r='15' fill='%23ff85a2' opacity='0.2'/%3E%3Ccircle cx='30' cy='70' r='15' fill='%23ff85a2' opacity='0.2'/%3E%3Ccircle cx='70' cy='70' r='10' fill='%23ff85a2' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: rotate(15deg);
+        }
+
+        .creator {
+            font-size: 14px;
+            color: #d46a87;
+        }
+
+        .order-btn {
+            background-color: #ff6b95;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 107, 149, 0.3);
+        }
+
+        .order-btn:hover {
+            background-color: #ff4d7d;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,30 Q50,10 70,30 Q90,50 70,70 Q50,90 30,70 Q10,50 30,30 Z' fill='%23ffd1dc' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: -30px;
+            left: -30px;
+            z-index: -1;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6b95;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #ff6b95;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .contacts {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #ff6b95;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #ff4d7d;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #d46a87;
+            background: #ffecf0;
+        }
+
+        .floating-elements {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .floating-elements div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ffd1dc;
+            opacity: 0.6;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .floating-elements div:nth-child(2) {
+            animation-delay: 1s;
+            align-self: flex-end;
+            background: #ff85a2;
+        }
+
+        .floating-elements div:nth-child(3) {
+            animation-delay: 2s;
+            background: #ff6b95;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text, .hero-image {
+                width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="creator">Сайт разработан: Кондитерская Студия</div>
+        <button class="order-btn" id="orderBtn">
+            <i class="fab fa-telegram"></i> Заказать в Telegram
+        </button>
+    </div>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Анна Кондитерова</h1>
+                <p>Привет! Я профессиональный кондитер с 7-летним опытом создания изысканных тортов и нежного зефира. Каждое изделие я создаю с любовью и вниманием к деталям, используя только натуральные ингредиенты.</p>
+                <p>Моя философия — это сочетание изысканного вкуса и эстетики. Я постоянно учусь и совершенствую свои навыки, чтобы радовать вас новыми вкусами и дизайнами.</p>
+                <p>Каждый торт и зефир, который вы видите на этом сайте, изготовлен вручную с заботой о качестве и вашем удовольствии.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Анна Кондитерова">
+            </div>
+        </section>
+
+        <h2>Мои работы</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=789&q=80" alt="Торт Наполеон">
+                <p>Торт "Наполеон" с ванильным кремом</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Ягодный торт">
+                <p>Ягодный торт со свежей малиной</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Шоколадный торт">
+                <p>Шоколадный торт "Графские развалины"</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1632151741977-795053b5a2fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Фруктовый зефир">
+                <p>Фруктовый зефир с малиной</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1612203985720-7c46338b35c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Ванильный зефир">
+                <p>Ванильный зефир с орехами</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1627308595176-9df03c6f3e8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Свадебный торт">
+                <p>Свадебный торт "Нежность"</p>
+            </div>
+        </div>
+
+        <section class="contacts">
+            <h2>Контакты</h2>
+            <p>Свяжитесь со мной, чтобы заказать торт или зефир, обсудить детали заказа или задать вопросы.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-telegram"></i>
+                    <a href="https://t.me/anna_confectioner" target="_blank">@anna_confectioner</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://instagram.com/anna_confectionery" target="_blank">@anna_confectionery</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:anna@confectionery.ru">anna@confectionery.ru</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="floating-elements">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <footer>
+        <p>© 2023 Кондитерская Анны. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.getElementById('orderBtn').addEventListener('click', function() {
+            window.open('https://t.me/anna_confectioner', '_blank');
+        });
+        
+        // Анимация появления элементов при прокрутке
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            galleryItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
